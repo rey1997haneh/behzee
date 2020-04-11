@@ -19,8 +19,7 @@ class tasksController extends Controller
 	
     public function index(Request $request)
     {
-		$user = User::findOrFail($request->user()->id);
-		$data = $this->task->getUserTasks($user);
+		$data = $this->task->getUserTasks($request->user()->id);
         return json_encode($data);
     }
 	

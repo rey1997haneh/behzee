@@ -10,8 +10,9 @@ use Illuminate\Support\Facades\Auth;
 class TaskRepository implements TaskRepositoryInterface
 {
 	
-    public function getUserTasks($user)
+    public function getUserTasks($user_id)
     {
+		$user = User::findOrFail($user_id);
         return $user->tasks;
     }
 
